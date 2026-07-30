@@ -68,5 +68,22 @@
     "难点": "关键是利用连续性控制函数值变化范围。",
     "答案": "因为 $$f(x)$$ 在 $$x_0$$ 连续，所以对于任意 $$\\varepsilon>0$$，存在 $$\\delta>0$$，使：\n\n$$|x-x_0|<\\delta$$ 时：\n\n$$|f(x)-f(x_0)|<\\varepsilon$$\n\n取：\n\n$$\\varepsilon=\\frac{|f(x_0)|}{2}$$\n\n则：\n\n$$|f(x)|\\geq |f(x_0)|-|f(x)-f(x_0)|$$\n\n所以：\n\n$$|f(x)|>\\frac{|f(x_0)|}{2}>0$$\n\n因此：\n\n$$f(x)\\neq0$$",
     "思路": "连续性的本质：函数值变化不会突然跳跃。\n\n证明不为零通常使用：\n\n$$|f(x)|\\geq |f(x_0)|-|f(x)-f(x_0)|$$\n\n利用三角不等式建立下界。"
-  }
+  },
+
+  {
+  "id": 6,
+  "标题": "1∞型极限：凑e法求幂指函数极限",
+  "分类": "极限",
+  "标签": [
+    "1∞型",
+    "重要极限",
+    "等价无穷小",
+    "凑e"
+  ],
+  "难度": "★★★★",
+  "题目": "求：$$\\lim_{x\\rightarrow1}\\left[\\tan\\left(\\frac{\\pi}{4}x\\right)\\right]^{\\tan\\left(\\frac{\\pi}{2}x\\right)}$$",
+  "难点": "这是典型的1∞型未定式。难点在于不能直接代入底数和指数，需要将底数化为1加无穷小，并将指数化为无穷小的倒数形式。",
+  "答案": "令 $$t=x-1$$，则 $$t\\rightarrow0$$。\n\n底数：\n\n$$\\tan\\left(\\frac{\\pi}{4}x\\right)=\\tan\\left(\\frac{\\pi}{4}+\\frac{\\pi}{4}t\\right)$$\n\n利用正切加法公式：\n\n$$\\tan\\left(\\frac{\\pi}{4}+\\theta\\right)=\\frac{1+\\tan\\theta}{1-\\tan\\theta}$$\n\n所以：\n\n$$\\tan\\left(\\frac{\\pi}{4}+\\frac{\\pi}{4}t\\right)-1\\sim\\frac{\\pi}{2}t$$\n\n指数：\n\n$$\\tan\\left(\\frac{\\pi}{2}x\\right)=\\tan\\left(\\frac{\\pi}{2}+\\frac{\\pi}{2}t\\right)$$\n\n利用诱导公式：\n\n$$\\tan\\left(\\frac{\\pi}{2}+\\theta\\right)=-\\cot\\theta$$\n\n得到：\n\n$$\\tan\\left(\\frac{\\pi}{2}+\\frac{\\pi}{2}t\\right)\\sim-\\frac{2}{\\pi t}$$\n\n因此：\n\n$$\\lim(\\text{底数}-1)\\times\\text{指数}=\\left(\\frac{\\pi}{2}t\\right)\\left(-\\frac{2}{\\pi t}\\right)=-1$$\n\n根据重要公式：\n\n$$\\lim(1+\\alpha)^\\beta=e^{\\lim\\alpha\\beta}$$\n\n所以原极限为：\n\n$$e^{-1}=\\frac1e$$",
+  "思路": "遇到幂指函数极限，先判断是否属于：\n\n$$1^\\infty$$、$$0^0$$、$$\\infty^0$$\n\n若属于未定式，核心目标是凑出：\n\n$$\\lim(1+\\alpha)^\\beta=e^{\\lim\\alpha\\beta}$$\n\n本题步骤：\n\n① 换元：令 $$t=x-1$$，将趋近点化为0。\n\n② 底数减1：找到底数偏离1的一阶无穷小。\n\n③ 指数化简：利用诱导公式将正切无穷大化为余切倒数形式。\n\n④ 两者相乘得到指数，最后套用凑e公式。\n\n一句话记忆：\n\n遇到$$1^\\infty$$，底数找小量，指数找倒数，两者相乘凑e。"
+}
 ]
