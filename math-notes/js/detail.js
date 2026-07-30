@@ -21,6 +21,8 @@ document.title=q.标题;
 document.getElementById("title")
 .innerHTML=q.标题;
 
+document.getElementById("chapter")
+.innerHTML=q.章节 || "";
 
 document.getElementById("question")
 .innerHTML=q.题目;
