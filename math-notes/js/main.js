@@ -8,12 +8,71 @@ fetch("data/questions.json")
 
 .then(data=>{
 
-questions=data;
 
-show(questions);
+data.forEach(q=>{
+
+
+let card=document.createElement("div");
+
+
+card.className="card";
+
+
+card.innerHTML=`
+
+<h3>${q.标题}</h3>
+
+<p class="question">
+${q.题目}
+</p>
+
+<div class="tags">
+${q.标签.map(t=>`<span>${t}</span>`).join("")}
+</div>
+
+`;
+
+
+
+container.appendChild(card);
 
 
 });
+
+
+// 卡片全部生成后渲染公式
+renderMath();
+
+
+});
+
+
+
+function renderMath(){
+
+renderMathInElement(document.body,{
+
+delimiters:[
+
+{
+left:"$$",
+right:"$$",
+display:true
+},
+
+{
+left:"$",
+right:"$",
+display:false
+}
+
+],
+
+throwOnError:false
+
+});
+
+}
 
 
 
