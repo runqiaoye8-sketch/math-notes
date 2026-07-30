@@ -4,9 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Rivaille Math Notes</title>
+<title>Rivaille 高数错题本</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -19,40 +20,38 @@
 <header>
 
 <h1>
-Rivaille Math Notes
+Rivaille 高数错题本
 </h1>
 
 <p>
-高数错题 · 思路解析 · 知识整理
+记录错误 · 理解方法 · 掌握思路
 </p>
 
 
-<nav>
+<div class="menu">
 
-<button onclick="filterNotes('全部')">
+<button onclick="filterCategory('全部')">
 全部
 </button>
 
-<button onclick="filterNotes('极限')">
+<button onclick="filterCategory('极限')">
 极限
 </button>
 
-<button onclick="filterNotes('连续性')">
+<button onclick="filterCategory('连续性')">
 连续性
 </button>
 
-
-<button onclick="filterNotes('导数')">
+<button onclick="filterCategory('导数')">
 导数
 </button>
 
-
-<button onclick="filterNotes('积分')">
+<button onclick="filterCategory('积分')">
 积分
 </button>
 
 
-</nav>
+</div>
 
 
 </header>
@@ -61,14 +60,15 @@ Rivaille Math Notes
 
 <main>
 
-<div id="cards"></div>
+<div id="list">
 
+</div>
 
 </main>
 
 
 
-<script src="js/index.js"></script>
+<script src="js/main.js"></script>
 
 
 </body>
