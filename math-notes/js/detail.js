@@ -4,37 +4,48 @@ new URLSearchParams(location.search)
 
 
 
-fetch("data/notes.json")
+fetch("data/questions.json")
+
 
 .then(res=>res.json())
 
-.then(notes=>{
+
+.then(data=>{
 
 
-let n=
-notes.find(
-x=>x.id==id
+let q=data.find(
+item=>item.id==id
 );
 
 
 
-document.title=n.title;
+document.title=q.标题;
 
 
-title.innerHTML=n.title;
+document.getElementById("title")
+.innerHTML=q.标题;
 
 
-question.innerHTML=n.question;
+
+document.getElementById("question")
+.innerHTML=q.题目;
 
 
-hard.innerHTML=n.hard;
+
+document.getElementById("hard")
+.innerHTML=q.难点;
 
 
-answer.innerHTML=
-n.answer.replace(/\n/g,"<br>");
+
+document.getElementById("answer")
+.innerHTML=
+q.答案.replace(/\n/g,"<br>");
 
 
-analysis.innerHTML=n.analysis;
+
+document.getElementById("analysis")
+.innerHTML=
+q.思路.replace(/\n/g,"<br>");
 
 
 
