@@ -53,3 +53,28 @@ q.思路.replace(/\n/g,"<br>");
 
 
 });
+
+
+function renderMath(){
+
+renderMathInElement(document.body,{
+
+delimiters:[
+
+{
+left:"$$",
+right:"$$",
+display:true
+},
+
+{
+left:"$",
+right:"$",
+display:false
+}
+
+]
+
+});
+
+}
