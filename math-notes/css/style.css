@@ -1,13 +1,9 @@
 *{
-
 box-sizing:border-box;
-
 }
 
 
-
 body{
-
 
 margin:0;
 
@@ -15,30 +11,26 @@ font-family:
 "Microsoft YaHei",
 sans-serif;
 
-
 background:#f5f5f5;
 
 color:#222;
-
 
 }
 
 
 
-header{
+/* ===== 顶部 ===== */
 
+
+header{
 
 background:white;
 
-
-padding:50px 20px;
-
+padding:45px 20px;
 
 text-align:center;
 
-
 border-bottom:1px solid #eee;
-
 
 }
 
@@ -46,11 +38,9 @@ border-bottom:1px solid #eee;
 
 header h1{
 
-
 font-size:32px;
 
 margin:0 0 10px;
-
 
 }
 
@@ -58,19 +48,50 @@ margin:0 0 10px;
 
 header p{
 
-
 color:#777;
 
+margin-bottom:25px;
 
 }
 
 
 
+/* ===== 筛选区域 ===== */
+
+
 .menu{
 
+max-width:1000px;
 
-margin-top:30px;
+margin:30px auto 0;
 
+}
+
+
+
+.filter-group{
+
+background:#fafafa;
+
+padding:15px 20px;
+
+border-radius:15px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.filter-title{
+
+font-size:14px;
+
+font-weight:bold;
+
+color:#666;
+
+margin-bottom:10px;
 
 }
 
@@ -100,18 +121,25 @@ border-radius:20px;
 cursor:pointer;
 
 
+font-size:14px;
+
+
+transition:.2s;
+
+
 }
 
 
 
 button:hover{
 
-
 opacity:.8;
-
 
 }
 
+
+
+/* ===== 卡片列表 ===== */
 
 
 #list{
@@ -175,6 +203,9 @@ translateY(-5px);
 
 
 
+/* ===== 卡片内容 ===== */
+
+
 .category{
 
 
@@ -182,6 +213,9 @@ font-size:14px;
 
 
 color:#888;
+
+
+margin-bottom:8px;
 
 
 }
@@ -193,6 +227,31 @@ color:#888;
 
 font-size:20px;
 
+
+margin:10px 0;
+
+
+}
+
+
+
+.question{
+
+
+line-height:1.7;
+
+color:#444;
+
+}
+
+
+
+/* 标签 */
+
+
+.tags{
+
+margin-top:10px;
 
 }
 
@@ -216,11 +275,14 @@ border-radius:15px;
 font-size:12px;
 
 
-margin:5px;
+margin:5px 5px 5px 0;
 
 
 }
 
+
+
+/* 难度 */
 
 
 .level{
@@ -228,9 +290,14 @@ margin:5px;
 
 color:#e6a700;
 
+font-size:14px;
+
 
 }
 
+
+
+/* 查看解析 */
 
 
 a{
@@ -238,11 +305,30 @@ a{
 
 color:#222;
 
+
 text-decoration:none;
+
+
+font-weight:bold;
 
 
 }
 
+
+
+
+a:hover{
+
+
+text-decoration:underline;
+
+
+}
+
+
+
+
+/* ===== 详情页 ===== */
 
 
 .detail-card{
@@ -286,11 +372,94 @@ margin-top:30px;
 
 
 
+/* ===== 数学公式 ===== */
+
+
+.katex{
+
+
+font-size:1.1em;
+
+}
+
+
+
+
+
+/* ===== 手机端 ===== */
+
+
 @media(max-width:600px){
+
+
+
+header{
+
+padding:35px 15px;
+
+}
+
+
 
 header h1{
 
+
 font-size:25px;
+
+
+}
+
+
+
+.menu{
+
+margin-top:20px;
+
+}
+
+
+
+.filter-group{
+
+
+padding:12px;
+
+
+}
+
+
+
+button{
+
+
+padding:7px 14px;
+
+
+font-size:13px;
+
+
+}
+
+
+
+#list{
+
+
+padding:25px 15px;
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.card{
+
+
+padding:20px;
+
 
 }
 
