@@ -31,6 +31,9 @@ document.getElementById("question")
 .innerHTML=q.题目;
 
 
+renderMath();
+
+
 
 document.getElementById("hard")
 .innerHTML=q.难点;
