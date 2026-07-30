@@ -1,6 +1,15 @@
 let questions = [];
 
 
+// 当前筛选状态
+
+let currentChapter = "全部";
+
+let currentCategory = "全部";
+
+
+
+
 // 加载题库
 
 fetch("data/questions.json")
@@ -13,15 +22,9 @@ fetch("data/questions.json")
 questions = data;
 
 
-// 初始显示全部题目
+// 初始显示
 
-show(questions);
-
-
-// 渲染数学公式
-
-renderMath();
-
+applyFilter();
 
 })
 
@@ -30,6 +33,7 @@ renderMath();
 console.error("题库加载失败:",err);
 
 });
+
 
 
 
@@ -123,7 +127,7 @@ ${q.难度}
 
 
 
-// 每次重新生成卡片后重新渲染公式
+// 重新渲染公式
 
 renderMath();
 
@@ -134,32 +138,41 @@ renderMath();
 
 
 
+
+// =====================
+// 章节筛选
+// =====================
+
+
+function filterChapter(chapter){
+
+
+currentChapter = chapter;
+
+
+// 执行综合筛选
+
+applyFilter();
+
+
+}
+
+
+
+
+
+// =====================
 // 分类筛选
+// =====================
+
 
 function filterCategory(type){
 
 
-if(type==="全部"){
-
-show(questions);
-
-}
-
-else{
+currentCategory = type;
 
 
-show(
-
-questions.filter(
-
-q=>q.分类===type
-
-)
-
-);
-
-
-}
+applyFilter();
 
 
 }
@@ -167,7 +180,62 @@ q=>q.分类===type
 
 
 
+
+
+// =====================
+// 综合筛选
+// =====================
+
+
+function applyFilter(){
+
+
+let result = questions.filter(q=>{
+
+
+// 分类判断
+
+let categoryPass =
+currentCategory==="全部"
+||
+q.分类===currentCategory;
+
+
+
+// 章节判断
+// 目前 JSON 没有章节字段
+// 所以默认全部通过
+
+let chapterPass =
+currentChapter==="全部"
+||
+!q.章节
+||
+q.章节===currentChapter;
+
+
+
+return categoryPass && chapterPass;
+
+
+});
+
+
+
+show(result);
+
+
+}
+
+
+
+
+
+
+// =====================
 // KaTeX渲染
+// =====================
+
 
 function renderMath(){
 
