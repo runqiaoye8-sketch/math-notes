@@ -146,11 +146,11 @@ renderMath();
 
 function filterChapter(chapter){
 
+console.log("章节点击:", chapter);
+
 
 currentChapter = chapter;
 
-
-// 执行综合筛选
 
 applyFilter();
 
