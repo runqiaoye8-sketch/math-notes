@@ -5,19 +5,28 @@
 
 <meta charset="UTF-8">
 
+
+<!-- KaTeX 数学公式 -->
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
+
+
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 
 <title>Rivaille 高数错题本</title>
 
+
 <link rel="stylesheet" href="css/style.css">
 
+
 </head>
+
 
 
 <body>
@@ -25,52 +34,139 @@
 
 <header>
 
+
 <h1>
 Rivaille 高数错题本
 </h1>
+
 
 <p>
 记录错误 · 理解方法 · 掌握思路
 </p>
 
 
+
+<!-- 筛选区域 -->
+
 <div class="menu">
+
+
+<div class="filter-group">
+
+
+<div class="filter-title">
+章节
+</div>
+
+
+<button onclick="filterChapter('全部')">
+全部
+</button>
+
+
+<button onclick="filterChapter('函数、极限、连续')">
+一、函数、极限、连续
+</button>
+
+
+<button onclick="filterChapter('导数与微分')">
+二、导数与微分
+</button>
+
+
+<button onclick="filterChapter('中值定理与一元函数微分学的应用')">
+三、中值定理与一元函数微分学的应用
+</button>
+
+
+<button onclick="filterChapter('不定积分')">
+四、不定积分
+</button>
+
+
+<button onclick="filterChapter('定积分及应用')">
+五、定积分及应用
+</button>
+
+
+<button onclick="filterChapter('多元函数微分学')">
+六、多元函数微分学
+</button>
+
+
+<button onclick="filterChapter('微分方程与差分方程')">
+七、微分方程与差分方程
+</button>
+
+
+<button onclick="filterChapter('重积分')">
+八、重积分
+</button>
+
+
+</div>
+
+
+
+
+<div class="filter-group">
+
+
+<div class="filter-title">
+题型
+</div>
+
+
 
 <button onclick="filterCategory('全部')">
 全部
 </button>
 
+
 <button onclick="filterCategory('极限')">
 极限
 </button>
+
 
 <button onclick="filterCategory('连续性')">
 连续性
 </button>
 
+
 <button onclick="filterCategory('导数')">
 导数
 </button>
+
 
 <button onclick="filterCategory('积分')">
 积分
 </button>
 
 
+
 </div>
+
+
+</div>
+
 
 
 </header>
 
 
 
+
+
 <main>
+
 
 <div id="list">
 
 </div>
 
+
 </main>
+
 
 
 
@@ -78,5 +174,6 @@ Rivaille 高数错题本
 
 
 </body>
+
 
 </html>
