@@ -204,12 +204,10 @@ q.分类===currentCategory;
 
 // 章节判断
 // 目前 JSON 没有章节字段
-// 所以默认全部通过
+// 所以不通过
 
 let chapterPass =
 currentChapter==="全部"
-||
-!q.章节
 ||
 q.章节===currentChapter;
 
