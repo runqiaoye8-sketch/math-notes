@@ -1,6 +1,7 @@
-let questions=[];
+let questions = [];
 
 
+// 加载题库
 
 fetch("data/questions.json")
 
@@ -9,73 +10,31 @@ fetch("data/questions.json")
 .then(data=>{
 
 
-data.forEach(q=>{
+questions = data;
 
 
-let card=document.createElement("div");
+// 初始显示全部题目
+
+show(questions);
 
 
-card.className="card";
+// 渲染数学公式
 
-
-card.innerHTML=`
-
-<h3>${q.标题}</h3>
-
-<p class="question">
-${q.题目}
-</p>
-
-<div class="tags">
-${q.标签.map(t=>`<span>${t}</span>`).join("")}
-</div>
-
-`;
-
-
-
-container.appendChild(card);
-
-
-});
-
-
-// 卡片全部生成后渲染公式
 renderMath();
 
 
-});
+})
 
+.catch(err=>{
 
-
-function renderMath(){
-
-renderMathInElement(document.body,{
-
-delimiters:[
-
-{
-left:"$$",
-right:"$$",
-display:true
-},
-
-{
-left:"$",
-right:"$",
-display:false
-}
-
-],
-
-throwOnError:false
+console.error("题库加载失败:",err);
 
 });
 
-}
 
 
 
+// 显示卡片
 
 function show(data){
 
@@ -114,6 +73,7 @@ ${q.分类}
 </div>
 
 
+
 <h2>
 
 ${q.标题}
@@ -122,18 +82,20 @@ ${q.标题}
 
 
 
-<p>
+<p class="question">
 
 ${q.题目}
 
 </p>
 
 
-<div>
+
+<div class="tags">
 
 ${tags}
 
 </div>
+
 
 
 <p class="level">
@@ -152,6 +114,7 @@ ${q.难度}
 </a>
 
 
+
 </div>
 
 `;
@@ -159,11 +122,19 @@ ${q.难度}
 });
 
 
+
+// 每次重新生成卡片后重新渲染公式
+
+renderMath();
+
+
 }
 
 
 
 
+
+// 分类筛选
 
 function filterCategory(type){
 
@@ -189,6 +160,58 @@ q=>q.分类===type
 
 
 }
+
+
+}
+
+
+
+
+// KaTeX渲染
+
+function renderMath(){
+
+
+if(typeof renderMathInElement==="undefined"){
+
+return;
+
+}
+
+
+
+renderMathInElement(document.body,{
+
+
+delimiters:[
+
+{
+
+left:"$$",
+
+right:"$$",
+
+display:true
+
+},
+
+{
+
+left:"$",
+
+right:"$",
+
+display:false
+
+}
+
+],
+
+
+throwOnError:false
+
+
+});
 
 
 }
