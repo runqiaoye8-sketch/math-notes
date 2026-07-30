@@ -70,6 +70,17 @@ box.innerHTML+=`
 <div class="card">
 
 
+${q.章节 ? 
+`
+<div class="chapter">
+${q.章节}
+</div>
+`
+:
+""
+}
+
+
 <div class="category">
 
 ${q.分类}
